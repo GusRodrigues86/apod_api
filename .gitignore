@@ -1,6 +1,7 @@
 # visual studio dirty
 .vs/*
-build/*
+/build/
+x64/*
 
 # Prerequisites
 *.d

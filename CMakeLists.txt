@@ -15,15 +15,10 @@ FetchContent_Declare(
     GIT_TAG        v1.15.2
     )
     
-    # For Windows: Prevent overriding the parent project's compiler/linker settings
-    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-    FetchContent_MakeAvailable(googletest)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} gtest_main)
 add_test(NAME apod_test COMMAND apod_api_tests)
-
-# Test executables
-# add_executable(${PROJECT_NAME}_tests test.cpp)
-
-# target_link_libraries(apod_api_tests PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
