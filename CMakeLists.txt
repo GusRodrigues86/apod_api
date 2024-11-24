@@ -4,7 +4,11 @@ project(apod_api)
 # vcpkg toolchain file
 set(CMAKE_TOOLCHAIN_FILE D:/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake)
 set(CMAKE_SUPPRESS_REGENERATION true)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build) 
+
+set(BUILD_DIR_NAME "build/${CMAKE_BUILD_TYPE}")
+set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/${BUILD_DIR_NAME}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 # Executable target
 
 # Add testing package
