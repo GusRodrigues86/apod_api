@@ -6,6 +6,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="D:\code\apod_api\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4795100F-3E4E-3BE2-95B4-0A211FF3E619}</UniqueIdentifier>
     </Filter>

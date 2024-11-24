@@ -190,6 +190,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="D:\code\apod_api\ZERO_CHECK.vcxproj">
+      <Project>{D3CBA227-BAF5-3F4D-8465-53CD4EC19EAB}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
     <ProjectReference Include="D:\code\apod_api\ALL_BUILD.vcxproj">
       <Project>{BB9A957F-E096-390D-97B2-AAE309FD2EF3}</Project>
       <Name>ALL_BUILD</Name>
