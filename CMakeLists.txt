@@ -13,6 +13,11 @@ find_package(GTest CONFIG REQUIRED)
 # Executable target
 add_executable(${PROJECT_NAME} src/main.cpp)
 
+# Include all source files
+file(GLOB_RECURSE SRC_FILES "src/*.cpp")
+target_sources(${PROJECT_NAME} PRIVATE ${SRC_FILES})
+target_include_directories(${PROJECT_NAME} PRIVATE src) 
+
 # Link libs
 target_link_libraries(${PROJECT_NAME} PRIVATE  GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main glog::glog)
 add_test(NAME apod_test COMMAND apod_api_tests)

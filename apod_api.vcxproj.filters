@@ -4,6 +4,9 @@
     <ClCompile Include="D:\code\apod_api\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\code\apod_api\src\Logger\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\code\apod_api\CMakeLists.txt" />
