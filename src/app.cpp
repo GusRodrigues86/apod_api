@@ -1,6 +1,7 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
+#include <sstream>
 #include "oatpp/core/macro/component.hpp"
 #include "oatpp/core/base/Environment.hpp"
 #include "oatpp/network/Server.hpp"
@@ -23,7 +24,12 @@ void run() {
 	oatpp::network::Server server(connectionProvider, connectionHandler);
 
 	/* Print info about server port */
-	OATPP_LOGI("APOD API", "Server running on port %s", connectionProvider->getProperty("port").getData());
+	auto host = static_cast<const char*>(connectionProvider->getProperty("host").getData());
+	auto port = static_cast<const char*>(connectionProvider->getProperty("port").getData());
+	
+	std::ostringstream sWelcome;
+	sWelcome << "APOD API Server running on " << host << ":" << port << std::endl;
+	Logger::get()->info(sWelcome.str());
 
 	/* Run server */
 	server.run();
@@ -48,6 +54,8 @@ int main(int argc, char *argv[]) {
 			 crash = true;
 		 }
    }
+
+	 oatpp::base::Environment::destroy();
    
    return crash;
 }
