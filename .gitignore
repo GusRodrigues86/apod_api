@@ -41,6 +41,9 @@ x64/*
 *.out
 *.app
 
+# Logs
+*.log
+
 ## CMake ignore files
 CMakeLists.txt.user
 CMakeCache.txt
