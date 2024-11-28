@@ -16,4 +16,12 @@
       <UniqueIdentifier>{4795100F-3E4E-3BE2-95B4-0A211FF3E619}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\server_components.hpp" />
+    <ClInclude Include="src\app.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="LICENSE" />
+  </ItemGroup>
 </Project>
