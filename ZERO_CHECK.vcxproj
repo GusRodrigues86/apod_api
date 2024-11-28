@@ -23,6 +23,10 @@
       <Configuration>RelWithDebInfo</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="test|x64">
+      <Configuration>test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D3CBA227-BAF5-3F4D-8465-53CD4EC19EAB}</ProjectGuid>
@@ -34,6 +38,11 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='test|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -63,11 +72,22 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='test|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='test|x64'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -111,7 +131,9 @@
     <CustomBuild Include="D:\code\apod_api\CMakeFiles\ca035e28b23d252b1902d52cbec6c49d\generate.stamp.rule">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='test|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Checking Build System</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='test|x64'">Checking Build System</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 D:\cmake-3.31.0-windows-x86_64\bin\cmake.exe -SD:/code/apod_api -BD:/code/apod_api --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/code/apod_api/apod_api.sln
 if %errorlevel% neq 0 goto :cmEnd
@@ -121,9 +143,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='test|x64'">setlocal
+D:\cmake-3.31.0-windows-x86_64\bin\cmake.exe -SD:/code/apod_api -BD:/code/apod_api --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/code/apod_api/apod_api.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeCInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeDependentOption.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeFindDependencyMacro.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeRCInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CheckIncludeFile.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CheckLibraryExists.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\MSVC.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\FindPackageMessage.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\FindThreads.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeCCompiler.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeCXXCompiler.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeRCCompiler.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeSystem.cmake;D:\code\apod_api\CMakeLists.txt;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-config-version.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-config.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-nonamespace-targets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-nonamespace-targets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-nonamespace-targets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-targets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-targets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-targets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\vcpkg-cmake-wrapper.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-config-version.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-config.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-targets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-targets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-targets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestConfig.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestConfigVersion.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestTargets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestTargets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestTargets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppConfig.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppConfigVersion.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppTargets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppTargets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppTargets.cmake;D:\vcpkg\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='test|x64'">D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeCInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeDependentOption.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeFindDependencyMacro.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeRCInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CheckIncludeFile.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\CheckLibraryExists.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Compiler\MSVC.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\FindPackageMessage.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\FindThreads.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\Windows.cmake;D:\cmake-3.31.0-windows-x86_64\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeCCompiler.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeCXXCompiler.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeRCCompiler.cmake;D:\code\apod_api\CMakeFiles\3.31.0\CMakeSystem.cmake;D:\code\apod_api\CMakeLists.txt;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-config-version.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-config.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-nonamespace-targets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-nonamespace-targets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-nonamespace-targets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-targets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-targets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\gflags-targets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gflags\vcpkg-cmake-wrapper.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-config-version.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-config.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-targets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-targets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\glog\glog-targets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestConfig.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestConfigVersion.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestTargets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestTargets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\gtest\GTestTargets.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppConfig.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppConfigVersion.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppTargets-debug.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppTargets-release.cmake;D:\vcpkg\vcpkg\installed\x64-windows\share\oatpp\oatppTargets.cmake;D:\vcpkg\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\code\apod_api\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='test|x64'">D:\code\apod_api\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='test|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Checking Build System</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal

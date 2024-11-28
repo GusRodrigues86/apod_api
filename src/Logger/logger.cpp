@@ -42,7 +42,7 @@ void Logger::fatal(std::string& message) {
 }
 
 void Logger::heartBeat() {
-	std::cout << "Beep.." << std::endl;
+	std::cout << "Beep..." << std::endl;
 }
 
 
