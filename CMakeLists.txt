@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(apod_api)
 
+set(CXX_STANDARD 17)
 set(BUILD_DIR_NAME "build/${CMAKE_BUILD_TYPE}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
 set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/${BUILD_DIR_NAME}")
