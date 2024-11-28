@@ -1,5 +1,0 @@
-Log file created at: 2024/11/27 21:21:20
-Running on machine: MAKO-02-DESKTOP
-Running duration (h:mm:ss): 0:00:00
-Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I20241127 21:21:20.430319 24788 logger.cpp:28] configuring thread

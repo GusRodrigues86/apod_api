@@ -1,7 +1,0 @@
-Log file created at: 2024/11/27 21:27:09
-Running on machine: MAKO-02-DESKTOP
-Running duration (h:mm:ss): 0:00:00
-Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I20241127 21:27:09.200835  8368 logger.cpp:28] configuring thread
-I20241127 21:27:09.202196  8368 logger.cpp:28] configuring thread finished
-I20241127 21:27:09.209523 18736 logger.cpp:28] APOD API Server running on localhost:8000
