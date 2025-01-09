@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_library(${project_name}-lib
         src/component.hpp
+        src/swagger_component.hpp
         src/client/remote_client.cpp
         src/client/remote_client.hpp
         src/controller/api_controller.cpp
@@ -36,7 +37,14 @@ target_include_directories(${project_name}-lib PUBLIC src)
 ## add executables
 
 add_executable(${project_name}-exe src/app.cpp)
-target_link_libraries(${project_name}-exe ${project_name}-lib)
+target_link_libraries(
+    ${project_name}-exe
+    PUBLIC oatpp::oatpp
+    PUBLIC oatpp::oatpp-swagger
+    ${project_name}-lib
+    PUBLIC oatpp::oatpp
+    PUBLIC oatpp::oatpp-swagger
+)
 add_dependencies(${project_name}-exe ${project_name}-lib)
 
 set_target_properties(${project_name}-lib ${project_name}-exe PROPERTIES
