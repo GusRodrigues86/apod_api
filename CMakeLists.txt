@@ -9,7 +9,9 @@ set(CMAKE_CXX_STANDARD 17)
 add_library(${project_name}-lib
         src/component.hpp
         src/swagger_component.hpp
-        src/client/remote_client.cpp
+        src/error_handler.hpp
+        src/error_handler.cpp
+        # src/client/remote_client.cpp
         src/client/remote_client.hpp
         src/controller/api_controller.cpp
         src/controller/api_controller.hpp

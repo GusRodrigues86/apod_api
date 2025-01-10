@@ -1,39 +1,27 @@
-#ifndef MyController_hpp
-#define MyController_hpp
+#ifndef remote_api_client_hpp
+#define remote_api_client_hpp
 
-#include "dto/DTOs.hpp"
-
-#include "oatpp/web/server/api/ApiController.hpp"
 #include "oatpp/core/macro/codegen.hpp"
-#include "oatpp/core/macro/component.hpp"
-
-#include OATPP_CODEGEN_BEGIN(ApiController) //<-- Begin Codegen
+#include "oatpp/web/client/ApiClient.hpp"
 
 /**
- * Sample Api Controller.
+ * Remote Api Client
  */
-class MyController : public oatpp::web::server::api::ApiController {
-public:
-  /**
-   * Constructor with object mapper.
-   * @param objectMapper - default object mapper used to serialize/deserialize DTOs.
-   */
-  MyController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
-    : oatpp::web::server::api::ApiController(objectMapper)
-  {}
-public:
-  
-  ENDPOINT("GET", "/", root) {
-    auto dto = MyDto::createShared();
-    dto->statusCode = 200;
-    dto->message = "Hello World!";
-    return createDtoResponse(Status::CODE_200, dto);
-  }
-  
+class RemoteApiClient : public oatpp::web::client::ApiClient {
+#include OATPP_CODEGEN_BEGIN(ApiClient)  //<-- Begin Codegen
+ private:
+  constexpr static const char* HTTP_GET = "GET";
+
+ public:
+  API_CLIENT_INIT(RemoteApiClient)
+
+  API_CALL(HTTP_GET, "users", doGetApod)
+  // API_CALL(HTTP_GET, "/planetary/apod", doGetApod)
+  //?api_key=DEMO_KEY", getApod)
+
+#include OATPP_CODEGEN_END(ApiClient)  //<-- End Codegen
+
   // TODO Insert Your endpoints here !!!
-  
 };
 
-#include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
-
-#endif /* MyController_hpp */
+#endif  // ! remote_client_hpp
